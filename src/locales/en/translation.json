@@ -365,5 +365,37 @@
   "search_by_email": "Search by email",
   "collection": "Collection",
   "last_activity": "Last activity",
-  "close": "Close"
+  "close": "Close", 
+
+  
+  "auth": {
+    "welcome": "Welcome",
+    "connect_to_account": "Connect to your OFR account",
+    "connect_to_ecowas": "Connect to ECO ICBT",
+    "email_placeholder": "your.email@example.com",
+    "password_placeholder": "Your password",
+    "remember_me": "Remember me",
+    "forgot_password": "Forgot password?",
+    "sign_in": "Sign In",
+    "no_account": "Don't have an account yet?",
+    "create_account": "Create account",
+    "back_to_home": "Back to home",
+    "ecowas_title": "ECO ICBT",
+    "platform_subtitle": "Intelligent Platform",
+    "platform_description": "Platform for managing informal cross-border trade in the ECOWAS space to facilitate commercial exchanges",
+    "create_account_description": "Create your ECO ICBT account",
+    "first_name_placeholder": "First Name",
+    "last_name_placeholder": "Last Name",
+    "terms_acceptance": "By continuing you accept",
+    "terms_of_use": "our terms of use",
+    "and": "and",
+    "privacy_policy": "our privacy policy",
+    "create_my_account": "Create my account",
+    "already_have_account": "Already have an account?",
+    "sign_in_link": "Sign In",
+    "email_label": "User Email",
+    "password_label": "Password"
+  }
+
+
 }

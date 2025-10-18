@@ -7,6 +7,7 @@ import Checkbox from "../form/input/Checkbox";
 import Button from "../ui/button/Button";
 import useAuth from "../../providers/auth/useAuth.ts";
 import { useCustomModal } from "../../context/ModalContext.tsx";
+import { useTranslation } from "react-i18next";
 
 export default function SignInForm() {
   const [showPassword, setShowPassword] = useState(false);
@@ -19,6 +20,7 @@ export default function SignInForm() {
   const { login, getUserInfos } = useAuth();
   const navigate = useNavigate();
   const { openModal } = useCustomModal();
+  const { t } = useTranslation();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -26,35 +28,28 @@ export default function SignInForm() {
     try {
       const req = await login(username, password);
 
-      if (req === false) {
+      if (!req || req.success === false) {
         openModal({
-          title: "Attention!",
-          description: "Erreur interne.",
+          title: "Connexion échouée!",
+          description: req?.message || "Erreur interne.",
           content: (
             <p className="text-sm text-gray-500 dark:text-gray-400">
-              Connexion échoué!
+              Veuillez vérifier vos identifiants et réessayer.
             </p>
           ),
         });
       } else {
-        if (req.success === false) {
-          openModal({
-            title: "Connexion échouée!",
-            description: req.message,
-            content: "",
-          });
-        } else {
-          console.log("Succes 2");
-          await navigate("/");
-        }
+        console.log("Connexion réussie !");
+        // Redirection immédiate sans modal de succès
+        navigate("/");
       }
     } catch (err) {
       openModal({
-        title: "Alerte!",
-        description: "Erreur de connexion.",
+        title: "Erreur!",
+        description: "Une erreur inattendue s'est produite.",
         content: (
           <p className="text-sm text-gray-500 dark:text-gray-400">
-            Login failed
+            Veuillez réessayer plus tard.
           </p>
         ),
       });
@@ -62,99 +57,140 @@ export default function SignInForm() {
   };
 
   return (
-    <div className="flex flex-col flex-1">
-      <div className="w-full max-w-md pt-10 mx-auto">
-        <Link
-          to="/"
-          className="inline-flex items-center text-sm text-gray-500 transition-colors hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300"
-        >
-          <ChevronLeftIcon className="size-5" />
-          Retour
-        </Link>
-      </div>
-      <div className="flex flex-col justify-center flex-1 w-full max-w-md mx-auto">
-        <div>
-          <div className="mb-5 sm:mb-8">
-            <h1 className="mb-2 font-semibold text-gray-800 text-title-sm dark:text-white/90 sm:text-title-md">
-              Se connecter
-            </h1>
-            <p className="text-sm text-gray-500 dark:text-gray-400">
-              Entrez vos identifiants pour vous connecter!
-            </p>
-          </div>
-          <div>
-            <form onSubmit={handleSubmit}>
-              <div className="space-y-6">
-                <div>
-                  <Label>
-                    Email de l'utilisateur{" "}
-                    <span className="text-error-500">*</span>{" "}
-                  </Label>
-                  <Input
-                    placeholder="exemple@email.com"
-                    type={"email"}
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
-                  />
-                </div>
-                <div>
-                  <Label>
-                    Mot de passe <span className="text-error-500">*</span>{" "}
-                  </Label>
-                  <div className="relative">
-                    <Input
-                      value={password}
-                      type={showPassword ? "text" : "password"}
-                      placeholder="Entrez votre mot de passe"
-                      onChange={(e) => setPassword(e.target.value)}
-                    />
-                    <span
-                      onClick={() => setShowPassword(!showPassword)}
-                      className="absolute z-30 -translate-y-1/2 cursor-pointer right-4 top-1/2"
-                    >
-                      {showPassword ? (
-                        <EyeIcon className="fill-gray-500 dark:fill-gray-400 size-5" />
-                      ) : (
-                        <EyeCloseIcon className="fill-gray-500 dark:fill-gray-400 size-5" />
-                      )}
-                    </span>
-                  </div>
-                </div>
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-3">
-                    <Checkbox checked={isChecked} onChange={setIsChecked} />
-                    <span className="block font-normal text-gray-700 text-theme-sm dark:text-gray-400">
-                      Rester connecté.
-                    </span>
-                  </div>
-                  {/* <Link
-                    to="/reset-password"
-                    className="text-sm text-brand-500 hover:text-brand-600 dark:text-brand-400"
-                  >
-                    Mot de passe oublié?
-                  </Link> */}
-                </div>
-                <div>
-                  <Button className="w-full" size="sm">
-                    Connexion
-                  </Button>
-                </div>
-              </div>
-            </form>
+    <div className="space-y-8">
+      {/* Header avec style moderne */}
+      <div className="text-center">
+        <div className="mb-6">
+          <Link
+            to="/"
+            className="inline-flex items-center text-sm text-white/80 transition-colors hover:text-white"
+          >
+            <ChevronLeftIcon className="size-5 mr-2" />
+            {t("auth.back_to_home")}
+          </Link>
+        </div>
 
-            {/* <div className="mt-5">
-              <p className="text-sm font-normal text-center text-gray-700 dark:text-gray-400 sm:text-start">
-                Pas de compte? {""}
-                <Link
-                  to="/signup"
-                  className="text-brand-500 hover:text-brand-600 dark:text-brand-400"
-                >
-                  Créer un compte
-                </Link>
-              </p>
-            </div> */}
+        <div className="space-y-3">
+          <h1 className="text-3xl font-bold text-white">{t("auth.welcome")}</h1>
+          <p className="text-white/80 text-lg">{t("auth.connect_to_ecowas")}</p>
+          <div className="w-12 h-1 bg-orange-500 mx-auto rounded-full"></div>
+        </div>
+      </div>
+
+      {/* Formulaire avec style glassmorphism */}
+      <form onSubmit={handleSubmit} className="space-y-6">
+        <div className="space-y-5">
+          {/* Champ Email avec icône */}
+          <div className="relative">
+            <Label className="text-white/90 text-sm font-medium mb-2 block">
+              {t("auth.email_label")} <span className="text-orange-400">*</span>
+            </Label>
+            <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none top-6">
+              <svg
+                className="w-5 h-5 text-white/60"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207"
+                />
+              </svg>
+            </div>
+            <Input
+              placeholder={t("auth.email_placeholder")}
+              type="email"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              className="pl-12 bg-white/10 border-white/20 text-white placeholder-white/60 focus:border-orange-400 focus:ring-orange-400"
+            />
+          </div>
+
+          {/* Champ Mot de passe avec icône */}
+          <div className="relative">
+            <Label className="text-white/90 text-sm font-medium mb-2 block">
+              {t("auth.password_label")}{" "}
+              <span className="text-orange-400">*</span>
+            </Label>
+            <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none top-6">
+              <svg
+                className="w-5 h-5 text-white/60"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
+                />
+              </svg>
+            </div>
+            <Input
+              value={password}
+              type={showPassword ? "text" : "password"}
+              placeholder={t("auth.password_placeholder")}
+              onChange={(e) => setPassword(e.target.value)}
+              className="pl-12 bg-white/10 border-white/20 text-white placeholder-white/60 focus:border-orange-400 focus:ring-orange-400"
+            />
+            <button
+              type="button"
+              onClick={() => setShowPassword(!showPassword)}
+              className="absolute right-0 pr-4 flex items-center text-white hover:text-orange-200 transition-colors top-8 h-10"
+            >
+              {showPassword ? (
+                <EyeIcon className="size-5 fill-black " />
+              ) : (
+                <EyeCloseIcon className="size-5 fill-black" />
+              )}
+            </button>
           </div>
         </div>
+
+        {/* Options avec style moderne */}
+        <div className="flex items-center justify-between">
+          <div className="flex items-center space-x-3">
+            <Checkbox
+              checked={isChecked}
+              onChange={setIsChecked}
+              className="border-white/30 bg-white/10"
+            />
+            <span className="text-white/80 text-sm">
+              {t("auth.remember_me")}
+            </span>
+          </div>
+          <Link
+            to="/reset-password"
+            className="text-sm text-orange-200 hover:text-orange-100 transition-colors"
+          >
+            {t("auth.forgot_password")}
+          </Link>
+        </div>
+
+        {/* Bouton uni orange */}
+        <button
+          type="submit"
+          className="w-full bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-6 rounded-xl transition-all duration-300 transform hover:scale-[1.02] shadow-lg hover:shadow-xl"
+        >
+          {t("auth.sign_in")}
+        </button>
+      </form>
+
+      {/* Footer avec style moderne */}
+      <div className="text-center pt-6 border-t border-white/20">
+        <p className="text-white/80 text-sm">
+          {t("auth.no_account")}{" "}
+          <Link
+            to="/signup"
+            className="text-orange-200 hover:text-orange-100 font-light transition-colors"
+          >
+            {t("auth.create_account")}
+          </Link>
+        </p>
       </div>
     </div>
   );

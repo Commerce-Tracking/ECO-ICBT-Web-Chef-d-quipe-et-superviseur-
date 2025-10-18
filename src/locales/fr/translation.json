@@ -372,5 +372,34 @@
   "search_by_phone": "Rechercher par téléphone",
   "search_by_email": "Rechercher par email",
   "collection": "Collecte",
-  "last_activity": "Dernière activité"
+  "last_activity": "Dernière activité",
+
+    "auth": {
+    "welcome": "Bienvenue",
+    "connect_to_account": "Connectez-vous à votre compte OFR",
+    "connect_to_ecowas": "Connectez-vous à ECO ICBT",
+    "email_placeholder": "votre.email@exemple.com",
+    "password_placeholder": "Votre mot de passe",
+    "remember_me": "Se souvenir de moi",
+    "forgot_password": "Mot de passe oublié ?",
+    "sign_in": "Se connecter",
+    "no_account": "Pas encore de compte ?",
+    "create_account": "Créer un compte",
+    "back_to_home": "Retour à l'accueil",
+    "ecowas_title": "ECO ICBT",
+    "platform_subtitle": "Plateforme Intelligente",
+    "platform_description": "Plateforme de gestion du commerce informel transfrontalier dans l'espace CEDEAO pour faciliter les échanges commerciaux",
+    "create_account_description": "Créez votre compte ECO ICBT",
+    "first_name_placeholder": "Prénoms",
+    "last_name_placeholder": "Nom",
+    "terms_acceptance": "En continuant vous acceptez",
+    "terms_of_use": "nos conditions d'utilisation",
+    "and": "et",
+    "privacy_policy": "notre politique de confidentialité",
+    "create_my_account": "Créer mon compte",
+    "already_have_account": "Vous avez déjà un compte ?",
+    "sign_in_link": "Se connecter",
+    "email_label": "Email de l'utilisateur",
+    "password_label": "Mot de passe"
+  }
 }
