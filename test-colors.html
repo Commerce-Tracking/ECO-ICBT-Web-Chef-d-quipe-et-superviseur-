@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test des Nouvelles Couleurs - Commerce Tracking</title>
+    <style>
+        @font-face {
+            font-family: 'DM Sans';
+            src: url('/fonts/DMSans-Regular.ttf') format('truetype');
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'DM Sans';
+            src: url('/fonts/DMSans-Medium.ttf') format('truetype');
+            font-weight: 500;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'DM Sans';
+            src: url('/fonts/DMSans-Bold.ttf') format('truetype');
+            font-weight: 700;
+            font-style: normal;
+        }
+
+        * {
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        body {
+            margin: 0;
+            padding: 20px;
+            background-color: #f0f2f5;
+            color: #1b2e3b;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            color: #1A6C30;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .color-section {
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 24px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .color-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 16px;
+            margin-top: 16px;
+        }
+
+        .color-item {
+            text-align: center;
+        }
+
+        .color-swatch {
+            width: 100%;
+            height: 80px;
+            border-radius: 8px;
+            border: 2px solid #e1e5ea;
+            margin-bottom: 8px;
+        }
+
+        .color-name {
+            font-weight: 500;
+            font-size: 14px;
+            margin-bottom: 4px;
+        }
+
+        .color-hex {
+            font-family: monospace;
+            font-size: 12px;
+            color: #6f7c86;
+        }
+
+        .examples {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            margin-top: 24px;
+        }
+
+        .example-card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 500;
+            cursor: pointer;
+            margin: 8px;
+            transition: all 0.2s;
+        }
+
+        .btn-primary {
+            background-color: #1A6C30;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #155a28;
+        }
+
+        .btn-secondary {
+            background-color: #00277F;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background-color: #00206b;
+        }
+
+        .btn-warning {
+            background-color: #FFC200;
+            color: white;
+        }
+
+        .btn-warning:hover {
+            background-color: #e6ae00;
+        }
+
+        .alert {
+            padding: 16px;
+            border-radius: 8px;
+            margin: 16px 0;
+            border-left: 4px solid;
+        }
+
+        .alert-success {
+            background-color: #f0f7f2;
+            border-color: #1A6C30;
+            color: #155a28;
+        }
+
+        .alert-info {
+            background-color: #f0f2f7;
+            border-color: #00277F;
+            color: #00206b;
+        }
+
+        .alert-warning {
+            background-color: #fffbf0;
+            border-color: #FFC200;
+            color: #997200;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>🎨 Test des Nouvelles Couleurs - Commerce Tracking</h1>
+
+        <div class="color-section">
+            <h2>🟢 Vert Principal (Brand) - #1A6C30</h2>
+            <div class="color-grid">
+                <div class="color-item">
+                    <div class="color-swatch" style="background-color: #f0f7f2;"></div>
+                    <div class="color-name">25</div>
+                    <div class="color-hex">#f0f7f2</div>
+                </div>
+                <div class="color-item">
+                    <div class="color-swatch" style="background-color: #e1f0e6;"></div>
+                    <div class="color-name">50</div>
+                    <div class="color-hex">#e1f0e6</div>
+                </div>
+                <div class="color-item">
+                    <div class="color-swatch" style="background-color: #c3e1cd;"></div>
+                    <div class="color-name">100</div>
+                    <div class="color-hex">#c3e1cd</div>
+                </div>
+                <div class="color-item">
+                    <div class="color-swatch" style="background-color: #a7d2b5;"></div>
+                    <div class="color-name">200</div>
+                    <div class="color-hex">#a7d2b5</div>
+                </div>
+                <div class="color-item">
+                    <div class="color-swatch" style="background-color: #8bc39d;"></div>
+                    <div class="color-name">300</div>
+                    <div class="color-hex">#8bc39d</div>
+                </div>
+                <div class="color-item">
+                    <div class="color-swatch" style="background-color: #6fb485;"></div>
+                    <div class="color-name">400</div>
+                    <div class="color-hex">#6fb485</div>
+                </div>
+                <div class="color-item">
+                    <div class="color-swatch" style="background-color: #1A6C30;"></div>
+                    <div class="color-name">500</div>
+                    <div class="color-hex">#1A6C30</div>
+                </div>
+                <div class="color-item">
+                    <div class="color-swatch" style="background-color: #155a28;"></div>
+                    <div class="color-name">600</div>
+                    <div class="color-hex">#155a28</div>
+                </div>
+                <div class="color-item">
+                    <div class="color-swatch" style="background-color: #104820;"></div>
+                    <div class="color-name">700</div>
+                    <div class="color-hex">#104820</div>
+                </div>
+                <div class="color-item">
+                    <div class="color-swatch" style="background-color: #0c3618;"></div>
+                    <div class="color-name">800</div>
+                    <div class="color-hex">#0c3618</div>
+                </div>
+                <div class="color-item">
+                    <div class="color-swatch" style="background-color: #082410;"></div>
+                    <div class="color-name">900</div>
+                    <div class="color-hex">#082410</div>
+                </div>
+                <div class="color-item">
+                    <div class="color-swatch" style="background-color: #041208;"></div>
+                    <div class="color-name">950</div>
+                    <div class="color-hex">#041208</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="color-section">
+            <h2>🟡 Jaune (Warning) - #FFC200</h2>
+            <div class="color-grid">
+                <div class="color-item">
+                    <div class="color-swatch" style="background-color: #fffbf0;"></div>
+                    <div class="color-name">25</div>
+                    <div class="color-hex">#fffbf0</div>
+                </div>
+                <div class="color-item">
+                    <div class="color-swatch" style="background-color: #fff7e1;"></div>
+                    <div class="color-name">50</div>
+                    <div class="color-hex">#fff7e1</div>
+                </div>
+                <div class="color-item">
+                    <div class="color-swatch" style="background-color: #ffefc3;"></div>
+                    <div class="color-name">100</div>
+                    <div class="color-hex">#ffefc3</div>
+                </div>
+                <div class="color-item">
+                    <div class="color-swatch" style="background-color: #ffe7a7;"></div>
+                    <div class="color-name">200</div>
+                    <div class="color-hex">#ffe7a7</div>
+                </div>
+                <div class="color-item">
+                    <div class="color-swatch" style="background-color: #ffdf8b;"></div>
+                    <div class="color-name">300</div>
+                    <div class="color-hex">#ffdf8b</div>
+                </div>
+                <div class="color-item">
+                    <div class="color-swatch" style="background-color: #ffd76f;"></div>
+                    <div class="color-name">400</div>
+                    <div class="color-hex">#ffd76f</div>
+                </div>
+                <div class="color-item">
+                    <div class="color-swatch" style="background-color: #FFC200;"></div>
+                    <div class="color-name">500</div>
+                    <div class="color-hex">#FFC200</div>
+                </div>
+                <div class="color-item">
+                    <div class="color-swatch" style="background-color: #e6ae00;"></div>
+                    <div class="color-name">600</div>
+                    <div class="color-hex">#e6ae00</div>
+                </div>
+                <div class="color-item">
+                    <div class="color-swatch" style="background-color: #cc9a00;"></div>
+                    <div class="color-name">700</div>
+                    <div class="color-hex">#cc9a00</div>
+                </div>
+                <div class="color-item">
+                    <div class="color-swatch" style="background-color: #b38600;"></div>
+                    <div class="color-name">800</div>
+                    <div class="color-hex">#b38600</div>
+                </div>
+                <div class="color-item">
+                    <div class="color-swatch" style="background-color: #997200;"></div>
+                    <div class="color-name">900</div>
+                    <div class="color-hex">#997200</div>
+                </div>
+                <div class="color-item">
+                    <div class="color-swatch" style="background-color: #805e00;"></div>
+                    <div class="color-name">950</div>
+                    <div class="color-hex">#805e00</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="color-section">
+            <h2>🔵 Bleu (Info) - #00277F</h2>
+            <div class="color-grid">
+                <div class="color-item">
+                    <div class="color-swatch" style="background-color: #f0f2f7;"></div>
+                    <div class="color-name">25</div>
+                    <div class="color-hex">#f0f2f7</div>
+                </div>
+                <div class="color-item">
+                    <div class="color-swatch" style="background-color: #e1e5f0;"></div>
+                    <div class="color-name">50</div>
+                    <div class="color-hex">#e1e5f0</div>
+                </div>
+                <div class="color-item">
+                    <div class="color-swatch" style="background-color: #c3cae1;"></div>
+                    <div class="color-name">100</div>
+                    <div class="color-hex">#c3cae1</div>
+                </div>
+                <div class="color-item">
+                    <div class="color-swatch" style="background-color: #a7b0d2;"></div>
+                    <div class="color-name">200</div>
+                    <div class="color-hex">#a7b0d2</div>
+                </div>
+                <div class="color-item">
+                    <div class="color-swatch" style="background-color: #8b96c3;"></div>
+                    <div class="color-name">300</div>
+                    <div class="color-hex">#8b96c3</div>
+                </div>
+                <div class="color-item">
+                    <div class="color-swatch" style="background-color: #6f7cb4;"></div>
+                    <div class="color-name">400</div>
+                    <div class="color-hex">#6f7cb4</div>
+                </div>
+                <div class="color-item">
+                    <div class="color-swatch" style="background-color: #00277F;"></div>
+                    <div class="color-name">500</div>
+                    <div class="color-hex">#00277F</div>
+                </div>
+                <div class="color-item">
+                    <div class="color-swatch" style="background-color: #00206b;"></div>
+                    <div class="color-name">600</div>
+                    <div class="color-hex">#00206b</div>
+                </div>
+                <div class="color-item">
+                    <div class="color-swatch" style="background-color: #001957;"></div>
+                    <div class="color-name">700</div>
+                    <div class="color-hex">#001957</div>
+                </div>
+                <div class="color-item">
+                    <div class="color-swatch" style="background-color: #001243;"></div>
+                    <div class="color-name">800</div>
+                    <div class="color-hex">#001243</div>
+                </div>
+                <div class="color-item">
+                    <div class="color-swatch" style="background-color: #000c2f;"></div>
+                    <div class="color-name">900</div>
+                    <div class="color-hex">#000c2f</div>
+                </div>
+                <div class="color-item">
+                    <div class="color-swatch" style="background-color: #00061b;"></div>
+                    <div class="color-name">950</div>
+                    <div class="color-hex">#00061b</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="examples">
+            <div class="example-card">
+                <h3>🎯 Exemples d'Utilisation</h3>
+                <button class="btn btn-primary">Bouton Principal</button>
+                <button class="btn btn-secondary">Bouton Secondaire</button>
+                <button class="btn btn-warning">Bouton Avertissement</button>
+            </div>
+
+            <div class="example-card">
+                <h3>📢 Messages et Alertes</h3>
+                <div class="alert alert-success">
+                    ✅ Opération réussie avec succès !
+                </div>
+                <div class="alert alert-info">
+                    ℹ️ Information importante à consulter
+                </div>
+                <div class="alert alert-warning">
+                    ⚠️ Attention, action requise
+                </div>
+            </div>
+        </div>
+
+        <div class="color-section">
+            <h2>🔤 Typographie - DM Sans</h2>
+            <p style="font-size: 72px; font-weight: 700; color: #1A6C30; margin: 20px 0;">
+                Titre 2XL - 72px - Vert Principal
+            </p>
+            <p style="font-size: 60px; font-weight: 700; color: #00277F; margin: 20px 0;">
+                Titre XL - 60px - Bleu Principal
+            </p>
+            <p style="font-size: 48px; font-weight: 600; color: #FFC200; margin: 20px 0;">
+                Titre LG - 48px - Jaune Principal
+            </p>
+            <p style="font-size: 36px; font-weight: 500; color: #53626d; margin: 20px 0;">
+                Titre MD - 36px - Gris
+            </p>
+            <p style="font-size: 20px; font-weight: 400; color: #1b2e3b; margin: 20px 0;">
+                Texte XL - 20px - Texte principal
+            </p>
+            <p style="font-size: 14px; font-weight: 400; color: #6f7c86; margin: 20px 0;">
+                Texte SM - 14px - Texte secondaire
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>
